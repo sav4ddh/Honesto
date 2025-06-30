@@ -1,3 +1,4 @@
+import Header from '@/components/layout/Header';
 import './globals.css';
 import { Metadata } from 'next';
 import { Outfit } from 'next/font/google';
@@ -16,7 +17,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={`${outfitFont.className} p-10`}>{children}</body>
+      <body
+        className={`${outfitFont.className} min-h-screen bg-gradient-to-br from-[#1a103d] to-[#2d0c52] text-white`}
+      >
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
