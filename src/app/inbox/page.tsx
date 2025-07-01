@@ -35,7 +35,7 @@ export default function InboxPage() {
       </div>
 
       <div className='flex-1 h-screen flex flex-col bg-gradient-to-b from-[#1D133A] to-[#140D2C]'>
-        {false ? (
+        {true ? (
           <MessageView />
         ) : (
           <div className='flex-1 flex flex-col items-center justify-center text-[#BDBDBD]'>
