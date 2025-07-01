@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 
 import { assets } from '@/assets/assets';
 import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 export default function Home() {
   const router = useRouter();
@@ -46,9 +47,12 @@ export default function Home() {
 
           <div className='max-w-md flex items-end justify-between'>
             <hr className='h-2 w-1/2 md:w-full mr-2' />
-            <span className='w-full text-accent cursor-pointer underline'>
+            <Link
+              href={'/register'}
+              className='w-full text-accent cursor-pointer underline'
+            >
               or, create your profile.
-            </span>
+            </Link>
           </div>
         </div>
 
