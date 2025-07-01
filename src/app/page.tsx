@@ -1,13 +1,18 @@
 'use client';
 import Image from 'next/image';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 import { assets } from '@/assets/assets';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 
 export default function Home() {
-  const [userID, setUserID] = useState<string>('honesto.com/');
+  const router = useRouter();
+  const [userID, setUserID] = useState<string>('');
+
+  function verifyUser() {
+    router.push(`/${userID}`);
+  }
 
   return (
     <div className='max-w-4/5 mx-auto mt-12 md:mt-0 space-y-8'>
@@ -22,13 +27,19 @@ export default function Home() {
           </p>
 
           <div className='relative mb-2 flex items-center max-w-md'>
-            <Input
+            <input
+              type='text'
               value={userID}
               onChange={(e) => setUserID(e.target.value)}
-              className='bg-white py-6 text-black'
-              placeholder='honesto.com/anonymous-id'
+              className='pl-[115px] pr-28 py-3 w-full rounded-md bg-white text-black font-medium border-none'
             />
-            <Button className='absolute py-6 bg-accent cursor-pointer hover:bg-[#e2ff29ab] text-black right-0 rounded-none rounded-r-md'>
+            <span className='absolute left-4 top-1/2 -translate-y-1/2 text-gray-600 font-medium pointer-events-none select-none'>
+              honesto.com/
+            </span>
+            <Button
+              onClick={verifyUser}
+              className='absolute py-6 bg-accent cursor-pointer hover:bg-[#e2ff29ab] text-black right-0 rounded-none rounded-r-md'
+            >
               Verify User
             </Button>
           </div>
